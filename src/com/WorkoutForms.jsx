@@ -1,6 +1,8 @@
 import { useRef, useState } from "react";
 import { useWorkoutContext } from "../hooks/UseWorkoutContext";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const WorkoutForms = () => {
     const {dispatch} = useWorkoutContext()
     const [formData, setFormData] = useState({
@@ -20,7 +22,7 @@ const WorkoutForms = () => {
 
      const handleSubmit = async (e) =>{
        e.preventDefault()
-       const response = await fetch('/api/workouts', {
+       const response = await fetch(`${API_URL}/api/workouts`, {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: {

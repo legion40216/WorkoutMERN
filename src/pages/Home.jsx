@@ -3,13 +3,15 @@ import WorkoutDetails from "../com/WorkoutDetails";
 import WorkoutForms from "../com/WorkoutForms";
 import { useWorkoutContext } from "../hooks/UseWorkoutContext";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const Home = () => {
   const {workouts, dispatch} = useWorkoutContext()
 
     useEffect(()=>{
       const fetchWorkouts = async () =>{
         try {
-            const response = await fetch('/api/workouts');
+            const response = await fetch(`${API_URL}/api/workouts`);
             const json = await response.json();
 
             if (response.ok) {
