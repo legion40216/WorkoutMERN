@@ -26,7 +26,7 @@ const Home = () => {
           }
         };
       fetchWorkouts()
-    },[])
+    },[dispatch])
 
      console.log(workouts)
     return ( 
